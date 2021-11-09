@@ -16,12 +16,12 @@ class TravelsTableSeeder extends Seeder
     {
         for ($i = 0; $i < 100; $i++ ) {
             $newTravel = new Travel();
-            $newTravel->code = $faker->ean13();
+            $newTravel->code = $faker->ean8();
             $newTravel->destination = $faker->city();
             $newTravel->price = $faker->randomFloat(2, 99, 3000);
             $newTravel->days = $faker->numberBetween(2, 21);
-            $newTravel->start_date = $faker->dateTime();
-            $newTravel->end_date = $faker->dateTime();
+            $newTravel->start_date = $faker->dateTimeBetween('now', '+1 year');
+            $newTravel->end_date = $faker->dateTimeBetween('now', '+1 year');
             $newTravel->departure_airport = $faker->city();
             $newTravel->arrival_airport = $faker->city();
             $newTravel->accomodation_type = "Hotel";
